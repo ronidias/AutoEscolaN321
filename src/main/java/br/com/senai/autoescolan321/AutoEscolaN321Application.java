@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class AutoEscolaN321Application {
 	public static void main(String[] args) {
-		SpringApplication.run(AutoEscolaN321Application.class, args);
+
+        SpringApplication.run(AutoEscolaN321Application.class, args);
 	}
 }
