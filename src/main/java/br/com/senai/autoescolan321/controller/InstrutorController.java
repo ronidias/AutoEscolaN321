@@ -6,6 +6,9 @@ import br.com.senai.autoescolan321.instrutor.Instrutor;
 import br.com.senai.autoescolan321.instrutor.InstrutorRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,7 +26,7 @@ public class InstrutorController {
     }
 
     @GetMapping
-    public List<DadosListagemInstrutor> listarInstrutores() {
-        return instrutorRepository.findAll().stream().map(DadosListagemInstrutor::new).toList();
+    public Page<DadosListagemInstrutor> listarInstrutores(@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao) {
+        return instrutorRepository.findAll(paginacao).map(DadosListagemInstrutor::new);
     }
 }
