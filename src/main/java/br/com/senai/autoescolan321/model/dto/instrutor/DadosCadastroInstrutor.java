@@ -1,14 +1,14 @@
-package br.com.senai.autoescolan321.aluno;
+package br.com.senai.autoescolan321.model.dto.instrutor;
 
-import br.com.senai.autoescolan321.endereco.DadosEndereco;
-import br.com.senai.autoescolan321.instrutor.Especialidade;
+import br.com.senai.autoescolan321.model.dto.endereco.DadosEndereco;
+import br.com.senai.autoescolan321.enumeration.Especialidade;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
-public record DadosCadastroAluno(
+public record DadosCadastroInstrutor(
 
         @NotBlank
         String nome,
@@ -22,7 +22,10 @@ public record DadosCadastroAluno(
 
         @NotBlank
         @Pattern(regexp = "\\d{9,11}")
-        String cpf,
+        String cnh,
+
+        @NotNull
+        Especialidade especialidade,
 
         @NotNull
         @Valid

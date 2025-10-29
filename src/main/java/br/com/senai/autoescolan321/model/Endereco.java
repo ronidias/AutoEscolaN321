@@ -1,11 +1,10 @@
-package br.com.senai.autoescolan321.endereco;
+package br.com.senai.autoescolan321.model;
 
+import br.com.senai.autoescolan321.model.dto.endereco.DadosEndereco;
 import jakarta.persistence.Embeddable;
-import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Getter
 @Embeddable

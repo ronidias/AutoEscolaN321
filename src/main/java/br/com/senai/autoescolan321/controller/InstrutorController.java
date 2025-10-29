@@ -1,6 +1,10 @@
 package br.com.senai.autoescolan321.controller;
 
-import br.com.senai.autoescolan321.instrutor.*;
+import br.com.senai.autoescolan321.model.dto.instrutor.DadosAtualizacaoInstrutor;
+import br.com.senai.autoescolan321.model.dto.instrutor.DadosCadastroInstrutor;
+import br.com.senai.autoescolan321.model.dto.instrutor.DadosListagemInstrutor;
+import br.com.senai.autoescolan321.entity.Instrutor;
+import br.com.senai.autoescolan321.repository.InstrutorRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +12,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/instrutores")

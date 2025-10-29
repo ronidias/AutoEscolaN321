@@ -1,7 +1,9 @@
-package br.com.senai.autoescolan321.instrutor;
+package br.com.senai.autoescolan321.entity;
 
-import br.com.senai.autoescolan321.endereco.DadosEndereco;
-import br.com.senai.autoescolan321.endereco.Endereco;
+import br.com.senai.autoescolan321.model.Endereco;
+import br.com.senai.autoescolan321.enumeration.Especialidade;
+import br.com.senai.autoescolan321.model.dto.instrutor.DadosAtualizacaoInstrutor;
+import br.com.senai.autoescolan321.model.dto.instrutor.DadosCadastroInstrutor;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;

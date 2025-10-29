@@ -1,4 +1,4 @@
-package br.com.senai.autoescolan321.endereco;
+package br.com.senai.autoescolan321.model.dto.endereco;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;

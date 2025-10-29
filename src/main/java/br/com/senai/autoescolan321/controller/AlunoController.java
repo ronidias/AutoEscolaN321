@@ -1,7 +1,10 @@
 package br.com.senai.autoescolan321.controller;
 
-import br.com.senai.autoescolan321.aluno.*;
-import br.com.senai.autoescolan321.instrutor.*;
+import br.com.senai.autoescolan321.model.dto.aluno.DadosAtualizacaoAluno;
+import br.com.senai.autoescolan321.model.dto.aluno.DadosCadastroAluno;
+import br.com.senai.autoescolan321.model.dto.aluno.DadosListagemAluno;
+import br.com.senai.autoescolan321.entity.Aluno;
+import br.com.senai.autoescolan321.repository.AlunoRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

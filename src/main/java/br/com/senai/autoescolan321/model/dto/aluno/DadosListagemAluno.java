@@ -1,5 +1,7 @@
-package br.com.senai.autoescolan321.aluno;
+package br.com.senai.autoescolan321.model.dto.aluno;
 
+
+import br.com.senai.autoescolan321.entity.Aluno;
 
 public record DadosListagemAluno(
 

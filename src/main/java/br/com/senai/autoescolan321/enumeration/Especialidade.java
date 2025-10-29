@@ -1,4 +1,4 @@
-package br.com.senai.autoescolan321.instrutor;
+package br.com.senai.autoescolan321.enumeration;
 
 public enum Especialidade {
     MOTOS,

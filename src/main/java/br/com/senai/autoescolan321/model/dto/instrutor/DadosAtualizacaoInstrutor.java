@@ -1,6 +1,7 @@
-package br.com.senai.autoescolan321.instrutor;
+package br.com.senai.autoescolan321.model.dto.instrutor;
 
-import br.com.senai.autoescolan321.endereco.DadosEndereco;
+import br.com.senai.autoescolan321.model.dto.endereco.DadosEndereco;
+import br.com.senai.autoescolan321.enumeration.Especialidade;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 
