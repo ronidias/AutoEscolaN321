@@ -35,4 +35,10 @@ public class InstrutorController {
         Instrutor instrutor = instrutorRepository.getReferenceById(dados.id());
         instrutor.atualizarInformacoes(dados);
     }
+
+    @DeleteMapping("/{id}")
+    @Transactional
+    public void excluirInstrutor(@PathVariable Long id) {
+        instrutorRepository.deleteById(id);
+    }
 }
