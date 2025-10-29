@@ -1,7 +1,9 @@
 package br.com.senai.autoescolan321.instrutor;
 
+import br.com.senai.autoescolan321.endereco.DadosEndereco;
 import br.com.senai.autoescolan321.endereco.Endereco;
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -20,6 +22,7 @@ public class Instrutor {
     private Long id;
     private String nome;
     private String email;
+    private String telefone;
     private String cnh;
 
     @Enumerated(EnumType.STRING)
@@ -31,10 +34,26 @@ public class Instrutor {
     public  Instrutor(DadosCadastroInstrutor dados) {
          this.nome = dados.nome();
          this.email = dados.email();
+         this.telefone = dados.telefone();
          this.cnh = dados.cnh();
          this.especialidade = dados.especialidade();
          this.endereco = new Endereco(dados.endereco());
 
     }
 
+
+    public void atualizarInformacoes(@Valid DadosAtualizacaoInstrutor dados) {
+        if (dados.nome() != null) {
+            this.nome = dados.nome();
+        }
+        if (dados.telefone() != null) {
+            this.telefone = dados.telefone();
+        }
+        if (dados.especialidade() != null) {
+            this.especialidade = dados.especialidade();
+        }
+        if (dados.endereco() != null) {
+            endereco.atualizarInformacoes(dados.endereco());
+        }
+    }
 }

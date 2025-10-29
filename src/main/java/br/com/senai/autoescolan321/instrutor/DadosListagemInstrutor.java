@@ -4,6 +4,7 @@ package br.com.senai.autoescolan321.instrutor;
 
 public record DadosListagemInstrutor(
 
+
         Long id,
         String nome,
         String email,
