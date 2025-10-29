@@ -20,6 +20,7 @@ public class Instrutor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private Boolean ativo;
     private String nome;
     private String email;
     private String telefone;
@@ -32,6 +33,7 @@ public class Instrutor {
     private Endereco endereco;
 
     public  Instrutor(DadosCadastroInstrutor dados) {
+         this.ativo = true;
          this.nome = dados.nome();
          this.email = dados.email();
          this.telefone = dados.telefone();
@@ -56,4 +58,12 @@ public class Instrutor {
             endereco.atualizarInformacoes(dados.endereco());
         }
     }
+
+    public void excluir() {
+
+        this.ativo = false;
+
+    }
+
 }
+

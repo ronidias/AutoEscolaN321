@@ -26,7 +26,7 @@ public class InstrutorController {
 
     @GetMapping
     public Page<DadosListagemInstrutor> listarInstrutores(@PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao) {
-        return instrutorRepository.findAll(paginacao).map(DadosListagemInstrutor::new);
+        return instrutorRepository.findAllByAtivoTrue(paginacao).map(DadosListagemInstrutor::new);
     }
 
     @PutMapping
@@ -39,6 +39,7 @@ public class InstrutorController {
     @DeleteMapping("/{id}")
     @Transactional
     public void excluirInstrutor(@PathVariable Long id) {
-        instrutorRepository.deleteById(id);
+        Instrutor instrutor = instrutorRepository.getReferenceById(id);
+        instrutor.excluir();
     }
 }
