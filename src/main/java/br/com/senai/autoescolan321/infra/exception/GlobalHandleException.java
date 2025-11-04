@@ -1,4 +1,4 @@
-package br.com.senai.autoescolan321.infra;
+package br.com.senai.autoescolan321.infra.exception;
 
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.ResponseEntity;
