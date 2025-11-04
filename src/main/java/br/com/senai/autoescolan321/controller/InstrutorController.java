@@ -4,7 +4,7 @@ import br.com.senai.autoescolan321.model.dto.instrutor.DadosAtualizacaoInstrutor
 import br.com.senai.autoescolan321.model.dto.instrutor.DadosCadastroInstrutor;
 import br.com.senai.autoescolan321.model.dto.instrutor.DadosDetalhamentoInstrutor;
 import br.com.senai.autoescolan321.model.dto.instrutor.DadosListagemInstrutor;
-import br.com.senai.autoescolan321.entity.Instrutor;
+import br.com.senai.autoescolan321.domain.Instrutor;
 import br.com.senai.autoescolan321.repository.InstrutorRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -32,7 +32,7 @@ public class InstrutorController {
             UriComponentsBuilder uriBuilder
     ) {
         Instrutor instrutor = new Instrutor(dados);
-        instrutorRepository.save(new Instrutor(dados));
+        instrutorRepository.save(instrutor);
         URI uri = uriBuilder.path("/instrutores/{id}")
                 .buildAndExpand(instrutor.getId()).toUri();
         return ResponseEntity.created(uri).body(new DadosDetalhamentoInstrutor(instrutor));
@@ -58,5 +58,11 @@ public class InstrutorController {
         Instrutor instrutor = instrutorRepository.getReferenceById(id);
         instrutor.excluir();
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity <DadosDetalhamentoInstrutor> detalharInstrutor(@PathVariable Long id) {
+        Instrutor instrutor = instrutorRepository.getReferenceById(id);
+        return ResponseEntity.ok(new DadosDetalhamentoInstrutor(instrutor));
     }
 }

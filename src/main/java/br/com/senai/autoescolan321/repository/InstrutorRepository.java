@@ -3,7 +3,7 @@ package br.com.senai.autoescolan321.repository;
 
 
 
-import br.com.senai.autoescolan321.entity.Instrutor;
+import br.com.senai.autoescolan321.domain.Instrutor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

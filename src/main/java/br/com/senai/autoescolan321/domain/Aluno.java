@@ -1,9 +1,8 @@
-package br.com.senai.autoescolan321.entity;
+package br.com.senai.autoescolan321.domain;
 
+import br.com.senai.autoescolan321.model.dto.aluno.DadosAtualizacaoAluno;
 import br.com.senai.autoescolan321.model.Endereco;
-import br.com.senai.autoescolan321.enumeration.Especialidade;
-import br.com.senai.autoescolan321.model.dto.instrutor.DadosAtualizacaoInstrutor;
-import br.com.senai.autoescolan321.model.dto.instrutor.DadosCadastroInstrutor;
+import br.com.senai.autoescolan321.model.dto.aluno.DadosCadastroAluno;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -11,13 +10,13 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Entity(name ="Instrutor")
-@Table(name = "instrutores")
+@Entity(name ="Aluno")
+@Table(name = "alunos")
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
-public class Instrutor {
+public class Aluno {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,35 +25,28 @@ public class Instrutor {
     private String nome;
     private String email;
     private String telefone;
-    private String cnh;
-
-    @Enumerated(EnumType.STRING)
-    private Especialidade especialidade;
+    private String cpf;
 
     @Embedded
     private Endereco endereco;
 
-    public  Instrutor(DadosCadastroInstrutor dados) {
+    public Aluno(DadosCadastroAluno dados) {
          this.ativo = true;
          this.nome = dados.nome();
          this.email = dados.email();
          this.telefone = dados.telefone();
-         this.cnh = dados.cnh();
-         this.especialidade = dados.especialidade();
+         this.cpf = dados.cpf();
          this.endereco = new Endereco(dados.endereco());
 
     }
 
 
-    public void atualizarInformacoes(@Valid DadosAtualizacaoInstrutor dados) {
+    public void atualizarInformacoes(@Valid DadosAtualizacaoAluno dados) {
         if (dados.nome() != null) {
             this.nome = dados.nome();
         }
         if (dados.telefone() != null) {
             this.telefone = dados.telefone();
-        }
-        if (dados.especialidade() != null) {
-            this.especialidade = dados.especialidade();
         }
         if (dados.endereco() != null) {
             endereco.atualizarInformacoes(dados.endereco());

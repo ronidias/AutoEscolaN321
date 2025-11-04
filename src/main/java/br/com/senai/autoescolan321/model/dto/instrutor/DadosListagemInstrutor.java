@@ -1,7 +1,7 @@
 package br.com.senai.autoescolan321.model.dto.instrutor;
 
 
-import br.com.senai.autoescolan321.entity.Instrutor;
+import br.com.senai.autoescolan321.domain.Instrutor;
 import br.com.senai.autoescolan321.enumeration.Especialidade;
 
 public record DadosListagemInstrutor(

@@ -3,7 +3,7 @@ package br.com.senai.autoescolan321.controller;
 import br.com.senai.autoescolan321.model.dto.aluno.DadosAtualizacaoAluno;
 import br.com.senai.autoescolan321.model.dto.aluno.DadosCadastroAluno;
 import br.com.senai.autoescolan321.model.dto.aluno.DadosListagemAluno;
-import br.com.senai.autoescolan321.entity.Aluno;
+import br.com.senai.autoescolan321.domain.Aluno;
 import br.com.senai.autoescolan321.repository.AlunoRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;

@@ -1,6 +1,6 @@
 package br.com.senai.autoescolan321.model;
 
-import br.com.senai.autoescolan321.model.dto.endereco.DadosEndereco;
+import br.com.senai.autoescolan321.domain.endereco.DadosEndereco;
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
