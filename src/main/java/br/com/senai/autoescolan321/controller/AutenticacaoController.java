@@ -1,7 +1,10 @@
 package br.com.senai.autoescolan321.controller;
 
 
+import br.com.senai.autoescolan321.domain.Usuario;
+import br.com.senai.autoescolan321.model.dto.DadosTokenJWT;
 import br.com.senai.autoescolan321.model.dto.usuario.DadosAutenticacao;
+import br.com.senai.autoescolan321.service.TokenService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,12 +23,16 @@ public class AutenticacaoController {
     @Autowired
     private AuthenticationManager manager;
 
+    @Autowired
+    private TokenService tokenService;
+
     @PostMapping
     public ResponseEntity efetuarLogin(@RequestBody @Valid DadosAutenticacao dados) {
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(dados.login(), dados.senha());
         Authentication authentication = manager.authenticate(token);
+        String tokenJWT = tokenService.gerarToken((Usuario) authentication.getPrincipal());
 
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(new DadosTokenJWT(tokenJWT));
     }
 
     }
