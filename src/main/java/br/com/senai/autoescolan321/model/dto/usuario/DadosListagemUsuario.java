@@ -15,9 +15,9 @@ public record DadosListagemUsuario(
         Long id,
         String login,
         Perfil perfil,
-        LocalDateTime dataCriacao) {
+        LocalDateTime dtCriacao) {
 
     public DadosListagemUsuario(Usuario usuario) {
-        this(usuario.getId(), usuario.getLogin(), usuario.getPerfil(), usuario.getDataCriacao());
+        this(usuario.getId(), usuario.getLogin(), usuario.getPerfil(), usuario.getDtCriacao());
     }
 }

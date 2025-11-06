@@ -26,6 +26,6 @@ public record DadosCadastroUsuario(
 
         @NotNull
         @Column(name = "dt_criacao")
-        LocalDateTime dataCriacao) {
+        LocalDateTime dtCriacao) {
 
 }

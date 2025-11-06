@@ -31,7 +31,7 @@ public class Usuario implements UserDetails {
     private Long id;
     private String login;
     private String senha;
-    private LocalDateTime dataCriacao;
+    private LocalDateTime dtCriacao;
     private Boolean ativo;
 
     @Enumerated(EnumType.STRING)

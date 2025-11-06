@@ -15,7 +15,7 @@ public record DadosDetalhamentoUsuario(
         Long id,
         String login,
         Perfil perfil,
-        LocalDateTime dataCriacao
+        LocalDateTime dtCriacao
 )
 
 {
@@ -25,7 +25,7 @@ public record DadosDetalhamentoUsuario(
                 usuario.getId(),
                 usuario.getLogin(),
                 usuario.getPerfil(),
-                usuario.getDataCriacao()
+                usuario.getDtCriacao()
         );
     }
 }
