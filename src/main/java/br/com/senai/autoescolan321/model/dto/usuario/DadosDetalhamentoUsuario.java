@@ -5,6 +5,8 @@ package br.com.senai.autoescolan321.model.dto.usuario;
 import br.com.senai.autoescolan321.domain.Usuario;
 import br.com.senai.autoescolan321.enumeration.Perfil;
 
+import java.time.LocalDateTime;
+
 
 public record DadosDetalhamentoUsuario(
 
@@ -13,7 +15,7 @@ public record DadosDetalhamentoUsuario(
         Long id,
         String login,
         Perfil perfil,
-        String dataCriacao
+        LocalDateTime dataCriacao
 )
 
 {
@@ -23,7 +25,7 @@ public record DadosDetalhamentoUsuario(
                 usuario.getId(),
                 usuario.getLogin(),
                 usuario.getPerfil(),
-                String.valueOf(usuario.getDataCriacao())
+                usuario.getDataCriacao()
         );
     }
 }
