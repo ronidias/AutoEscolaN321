@@ -1,7 +1,10 @@
 package br.com.senai.autoescolan321.domain;
 
 import br.com.senai.autoescolan321.enumeration.Perfil;
+import br.com.senai.autoescolan321.model.dto.usuario.DadosAtualizacaoUsuario;
+import br.com.senai.autoescolan321.model.dto.usuario.DadosCadastroUsuario;
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -10,6 +13,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
 
@@ -26,9 +31,14 @@ public class Usuario implements UserDetails {
     private Long id;
     private String login;
     private String senha;
+    private LocalDateTime dataCriacao;
+    private Boolean ativo;
 
     @Enumerated(EnumType.STRING)
     private Perfil perfil;
+
+    public Usuario(@Valid DadosCadastroUsuario dados) {
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -63,5 +73,11 @@ public class Usuario implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public void atualizarInformacoes(@Valid DadosAtualizacaoUsuario dados) {
+    }
+
+    public void excluir() {
     }
 }

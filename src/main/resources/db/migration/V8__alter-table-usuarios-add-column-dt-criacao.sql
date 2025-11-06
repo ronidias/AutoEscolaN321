@@ -1,0 +1,2 @@
+ALTER TABLE usuarios
+    ADD COLUMN dt_criacao DATETIME NOT NULL;
