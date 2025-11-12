@@ -10,12 +10,15 @@ import br.com.senai.autoescolan321.infra.exception.InstrutorIndisponivelExceptio
 import br.com.senai.autoescolan321.infra.exception.InstrutorNaoExisteException;
 import br.com.senai.autoescolan321.model.dto.instrucao.DadosAgendamentoInstrucao;
 import br.com.senai.autoescolan321.model.dto.instrucao.DadosDetalahamentoInstrucao;
+import br.com.senai.autoescolan321.model.dto.instrucao.validacoes.ValidadoresAgendamento;
 import br.com.senai.autoescolan321.repository.AlunoRepository;
 import br.com.senai.autoescolan321.repository.InstrucaoRepository;
 import br.com.senai.autoescolan321.repository.InstrutorRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 
@@ -27,6 +30,8 @@ public class AgendaDeInstrucoes {
     private InstrutorRepository instrutorRepository;
     @Autowired
     private InstrucaoRepository instrucaoRepository;
+    @Autowired
+    private List<ValidadoresAgendamento> validadoresAgendamentoList;
 
     @Transactional
     public DadosDetalahamentoInstrucao agendar(DadosAgendamentoInstrucao dados) {
@@ -37,6 +42,7 @@ public class AgendaDeInstrucoes {
         if(dados.idInstrutor()!= null && !instrutorRepository.existsById(dados.idInstrutor())){
             throw new InstrutorNaoExisteException("ID informado não existe");
         }
+        validadoresAgendamentoList.forEach(v -> v.validar(dados));
 
         Aluno aluno = alunoRepository.getReferenceById(dados.idAluno());
         Instrutor instrutor = escolherInstrutor(dados);
