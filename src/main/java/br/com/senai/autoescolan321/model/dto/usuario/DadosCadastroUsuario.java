@@ -11,8 +11,6 @@ import java.time.LocalDateTime;
 
 public record DadosCadastroUsuario(
 
-        @NotBlank
-        String id,
 
         @NotBlank
         @Email

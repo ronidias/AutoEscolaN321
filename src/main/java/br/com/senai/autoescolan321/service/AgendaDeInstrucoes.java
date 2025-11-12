@@ -10,7 +10,7 @@ import br.com.senai.autoescolan321.infra.exception.InstrutorIndisponivelExceptio
 import br.com.senai.autoescolan321.infra.exception.InstrutorNaoExisteException;
 import br.com.senai.autoescolan321.model.dto.instrucao.DadosAgendamentoInstrucao;
 import br.com.senai.autoescolan321.model.dto.instrucao.DadosDetalahamentoInstrucao;
-import br.com.senai.autoescolan321.model.dto.instrucao.validacoes.ValidadoresAgendamento;
+import br.com.senai.autoescolan321.model.dto.instrucao.validacoes.ValidadorAgendamento;
 import br.com.senai.autoescolan321.repository.AlunoRepository;
 import br.com.senai.autoescolan321.repository.InstrucaoRepository;
 import br.com.senai.autoescolan321.repository.InstrutorRepository;
@@ -31,7 +31,7 @@ public class AgendaDeInstrucoes {
     @Autowired
     private InstrucaoRepository instrucaoRepository;
     @Autowired
-    private List<ValidadoresAgendamento> validadoresAgendamentoList;
+    private List<ValidadorAgendamento> validadoresAgendamentoList;
 
     @Transactional
     public DadosDetalahamentoInstrucao agendar(DadosAgendamentoInstrucao dados) {

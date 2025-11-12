@@ -15,20 +15,28 @@ public interface InstrutorRepository extends JpaRepository<Instrutor,Long> {
 
     @Query ("""
             SELECT i FROM Instrutor i
-            WHERE 
+            WHERE
             i.ativo = true
-            AND 
+            AND
             i.especialidade = :especialidade
-            AND            
+            AND
             i.id NOT IN (
                 SELECT  a.instrutor.id FROM Instrucao a
-                WHERE 
-                a.data = :data     
+                WHERE
+                a.data = :data
                 AND
-                a.cancelada = false                                           
+                a.cancelada = false
             )
             order by rand()
-            limit 1                                                                         
-             """)
+            limit 1
+            """)
     Instrutor escolherInstrutorDisponivel(Especialidade especialidade,LocalDateTime data);
+
+
+    @Query("""
+            SELECT i.ativo
+            FROM Instrutor i
+            WHERE i.id = :id
+            """)
+    Boolean findInstrutorAtivoById(Long id);
 }

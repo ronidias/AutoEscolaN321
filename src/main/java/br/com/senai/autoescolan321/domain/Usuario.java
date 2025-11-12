@@ -5,6 +5,9 @@ import br.com.senai.autoescolan321.model.dto.usuario.DadosAtualizacaoUsuario;
 import br.com.senai.autoescolan321.model.dto.usuario.DadosCadastroUsuario;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -32,12 +35,18 @@ public class Usuario implements UserDetails {
     private String login;
     private String senha;
     private LocalDateTime dtCriacao;
-    private Boolean ativo;
+
 
     @Enumerated(EnumType.STRING)
     private Perfil perfil;
+    private Boolean ativo;
 
-    public Usuario(@Valid DadosCadastroUsuario dados) {
+    public Usuario(DadosCadastroUsuario dados) {
+        this.login = dados.login();
+        this.senha = dados.senha();
+        this.perfil = dados.perfil();
+        this.ativo = true;
+        this.dtCriacao = LocalDateTime.now();
     }
 
     @Override

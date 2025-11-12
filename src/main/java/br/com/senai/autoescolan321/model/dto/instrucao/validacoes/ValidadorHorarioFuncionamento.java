@@ -8,7 +8,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 
 @Component
-public class ValidadorHorarioFuncionamento implements ValidadoresAgendamento {
+public class ValidadorHorarioFuncionamento implements ValidadorAgendamento {
 
     @Override
     public void validar(DadosAgendamentoInstrucao dados) {
