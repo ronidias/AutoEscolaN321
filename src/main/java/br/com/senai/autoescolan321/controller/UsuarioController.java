@@ -29,9 +29,10 @@ public class UsuarioController {
     private PasswordEncoder encoder;
 
 
-    @PostMapping
+
     @Transactional
     @PreAuthorize("hasAnyRole('ADMIN')")
+    @PostMapping
     public ResponseEntity<DadosDetalhamentoUsuario> cadastrarUsuario(
             @RequestBody @Valid DadosCadastroUsuario dados,
             UriComponentsBuilder uriBuilder
