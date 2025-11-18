@@ -2,6 +2,7 @@ package br.com.senai.autoescolan321.domain;
 
 
 
+import br.com.senai.autoescolan321.enumeration.Motivo;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -32,5 +33,22 @@ public class Instrucao {
 
     private Boolean cancelada = false;
 
+    @Enumerated(EnumType.STRING)
+    private Motivo motivo;
 
-}
+    @Column(name = "data_cancelamento")
+    private LocalDateTime dataCancelamento;
+
+    public void cancelarInstrucao(Motivo motivo) {
+        this.cancelada = true;
+        this.motivo = motivo;
+        this.dataCancelamento = LocalDateTime.now();
+
+    }
+
+
+
+    }
+
+
+

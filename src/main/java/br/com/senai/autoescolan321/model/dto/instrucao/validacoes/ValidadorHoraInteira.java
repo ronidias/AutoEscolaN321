@@ -2,6 +2,7 @@ package br.com.senai.autoescolan321.model.dto.instrucao.validacoes;
 
 import br.com.senai.autoescolan321.infra.exception.ValidacaoException;
 import br.com.senai.autoescolan321.model.dto.instrucao.DadosAgendamentoInstrucao;
+import br.com.senai.autoescolan321.repository.ValidadorAgendamento;
 
 import java.time.LocalDateTime;
 

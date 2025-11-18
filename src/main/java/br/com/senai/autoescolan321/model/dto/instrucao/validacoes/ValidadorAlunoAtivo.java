@@ -3,7 +3,7 @@ package br.com.senai.autoescolan321.model.dto.instrucao.validacoes;
 import br.com.senai.autoescolan321.infra.exception.ValidacaoException;
 import br.com.senai.autoescolan321.model.dto.instrucao.DadosAgendamentoInstrucao;
 import br.com.senai.autoescolan321.repository.AlunoRepository;
-import br.com.senai.autoescolan321.repository.InstrutorRepository;
+import br.com.senai.autoescolan321.repository.ValidadorAgendamento;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
