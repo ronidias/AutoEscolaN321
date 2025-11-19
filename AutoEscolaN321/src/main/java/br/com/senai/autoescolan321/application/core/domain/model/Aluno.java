@@ -47,6 +47,8 @@ public class Aluno {
         }
         if(dados.endereco() != null) {
             this.endereco.atualizarInformacoes(dados.endereco());
+
+         //   tewte
         }
     }
 
