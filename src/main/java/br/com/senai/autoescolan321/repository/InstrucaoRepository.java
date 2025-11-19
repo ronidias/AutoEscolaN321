@@ -8,5 +8,5 @@ import java.time.LocalDateTime;
 public interface InstrucaoRepository extends JpaRepository<Instrucao, Long> {
     Boolean existsByInstrutorIdAndDataAndCanceladaFalse(Long id, LocalDateTime data);
 
-    Boolean existsByAlunoIdAndDataBetweenCanceladaFalse(Long aluno_id, LocalDateTime inicioExpediente, LocalDateTime fimExpediente);
+    Boolean existsByAlunoIdAndDataBetweenAndCanceladaFalse(Long aluno_id, LocalDateTime inicioExpediente, LocalDateTime fimExpediente);
 }

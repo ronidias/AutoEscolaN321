@@ -22,7 +22,6 @@ import java.util.List;
 
 
 @Service
-
 public class AgendaDeInstrucoes {
 
     @Autowired
@@ -81,10 +80,12 @@ public class AgendaDeInstrucoes {
             throw new InstrucaoNaoExisteException("ID da instrução informado não existe");
         }
         validadoresCancelamento.forEach(v -> v.validar(dados));
+
         Instrucao instrucao = instrucaoRepository.getReferenceById(dados.idInstrucao());
         instrucao.cancelarInstrucao(dados.motivo());
         instrucaoRepository.save(instrucao);
         return new DadosDetalhamentoCancelamento(instrucao);
+
 
     }
 
